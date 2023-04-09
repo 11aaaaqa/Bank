@@ -1,0 +1,10 @@
+﻿@model IQueryable<Bank.ModelsBank.BankHistory>
+<link rel="stylesheet" href="~/css/History.css" />
+<div class="print">
+    @foreach (var history in Model)
+    {
+        <h4>@history.Amount₽</h4>
+        <p class="transfer">@history.Status от @history.FromCardNumber</p>
+        <p>@history.Time</p>
+    }
+</div>

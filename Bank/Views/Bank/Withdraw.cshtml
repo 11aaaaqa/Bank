@@ -1,0 +1,16 @@
+﻿@model Bank.ModelsBank.BankAccount
+<link rel="stylesheet" href="~/css/Input.css" />
+<h2>Снять со счета</h2>
+<p></p>
+<div class="form-center">
+<form method="post" asp-controller="Bank" asp-action="Withdraw">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="Money"></label><br />
+        <input asp-for="Money" />
+        <span asp-validation-for="Money"></span>
+    </div>
+    <p></p>
+    <input type="submit" value="снять" />
+</form>
+</div>

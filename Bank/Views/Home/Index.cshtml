@@ -1,0 +1,26 @@
+﻿@model IOrderedQueryable<Bank.ModelsBank.BankAccount>
+<link rel="stylesheet" href="~/css/Home.css"/>
+<link rel="stylesheet" href="~/css/Reference.css"/>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    foreach (var money in Model)
+    {
+        <h3>@money.Money₽</h3>
+    }
+    
+    <p>Ваш номер карты <b>@User.Identity.Name</b></p>
+    <form method="post" asp-controller="Account" asp-action="Logout">
+        <input type="submit" value="Выйти из аккаунта" />
+    </form>
+}
+else
+{
+<div style="text-align: center">
+    <a asp-controller="Account" asp-action="Login" class="floating-button">Вход</a>
+    <a asp-controller="Account" asp-action="Register" class="floating-button">Регистрация</a>
+</div>
+}

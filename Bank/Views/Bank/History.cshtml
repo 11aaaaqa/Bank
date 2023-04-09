@@ -1,0 +1,23 @@
+﻿@model IQueryable<Bank.ModelsBank.BankHistory>
+<link rel="stylesheet" href="~/css/History.css" />
+<div class="print">
+    @foreach (var history in Model)
+    {
+        if (history.Status == "Перевод")
+        {
+            <h4>@history.Amount₽</h4>
+            <p class="transfer">@history.Status на карту @history.ToCardNumber</p>
+            <p>@history.Time</p>
+        }
+        if (history.Status == "Пополнение")
+        {
+            <h4 class="green">+@history.Amount₽</h4>
+            <p>@history.Status @history.Time</p>
+        }
+        if (history.Status == "Снятие")
+        {
+            <h4 class="red">-@history.Amount₽</h4>
+            <p>@history.Status @history.Time</p>
+        }
+    }
+</div>
